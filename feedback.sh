@@ -41,3 +41,9 @@ for script in */*/*/back.sql
 do
   feedback "$script"
 done
+
+# clean-up
+$query << EOF
+USE giec
+DROP VIEW feedback_chapter;
+EOF
