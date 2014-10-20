@@ -20,7 +20,7 @@ authors in annexes mention the institutions.
 
 ## Usage
 
-Run `export.sh`, providing the optional `user`, `host` and `password`
+Run `feedback.sh`, providing the optional `user`, `host` and `password`
 to connect to the MySQL database (by default as root@localhost without
 password).
 
