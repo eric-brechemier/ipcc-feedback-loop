@@ -42,8 +42,8 @@ execution with the `source` instruction.
 
 The output of each SQL script is filtered by the shell script
 `tsv2csv.sh` to convert it from TSV to CSV before saving the file
-to the same folder as the reference PDF documents for the QA checks
-within `ipcc-facts-checking` subdirectory.
+as `back.csv` in the same folder as the reference PDF document
+for the QA checks within `ipcc-facts-checking` subdirectory.
 
 ## Attribution
 
