@@ -6,6 +6,8 @@ CREATE OR REPLACE VIEW feedback_chapter AS
     participations.wg AS `WG`,
     chapters.number AS `CH`,
     participations.role AS `ROL`,
+    authors.last_name,
+    authors.first_name,
     chapters.title AS `Chapter`,
     roles.name AS `Role`,
     CONCAT(
@@ -37,25 +39,45 @@ CREATE OR REPLACE VIEW feedback_chapter AS
     authors.first_name
 ;
 
+SELECT *
+FROM
+(
   SELECT `Chapter`, `Role`, `Name`, `Country`
   FROM feedback_chapter
   WHERE ROL='CLA' AND AR=@AR AND WG=@WG AND CH=@CH
+  ORDER BY last_name, first_name
+) CLAs
 UNION ALL
   SELECT '','','',''
 UNION ALL
+SELECT *
+FROM
+(
   SELECT `Chapter`, `Role`, `Name`, `Country`
   FROM feedback_chapter
   WHERE ROL='LA' AND AR=@AR AND WG=@WG AND CH=@CH
+  ORDER BY last_name, first_name
+) LAs
 UNION ALL
   SELECT '','','',''
 UNION ALL
+SELECT *
+FROM
+(
   SELECT `Chapter`, `Role`, `Name`, `Country`
   FROM feedback_chapter
   WHERE ROL='CA' AND AR=@AR AND WG=@WG AND CH=@CH
+  ORDER BY last_name, first_name
+) CAs
 UNION ALL
   SELECT '','','',''
 UNION ALL
+SELECT *
+FROM
+(
   SELECT `Chapter`, `Role`, `Name`, `Country`
   FROM feedback_chapter
   WHERE ROL='RE' AND AR=@AR AND WG=@WG AND CH=@CH
+  ORDER BY last_name, first_name
+) REs
 ;
