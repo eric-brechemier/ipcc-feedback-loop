@@ -13,9 +13,11 @@ CREATE OR REPLACE VIEW feedback_chapter AS
     CONCAT(
       authors.first_name,
       ' ',
-      authors.last_name
-    ) AS `Name`,
-    countries.name AS `Country`
+      authors.last_name,
+      ' (',
+      countries.name,
+      ')'
+    ) AS `Name (Country)`
   FROM
     chapters
     JOIN participations
@@ -42,40 +44,40 @@ CREATE OR REPLACE VIEW feedback_chapter AS
 SELECT *
 FROM
 (
-  SELECT `Chapter`, `Role`, `Name`, `Country`
+  SELECT `Chapter`, `Role`, `Name (Country)`
   FROM feedback_chapter
   WHERE ROL='CLA' AND AR=@AR AND WG=@WG AND CH=@CH
   ORDER BY last_name, first_name
 ) CLAs
 UNION ALL
-  SELECT '','','',''
+  SELECT '','',''
 UNION ALL
 SELECT *
 FROM
 (
-  SELECT `Chapter`, `Role`, `Name`, `Country`
+  SELECT `Chapter`, `Role`, `Name (Country)`
   FROM feedback_chapter
   WHERE ROL='LA' AND AR=@AR AND WG=@WG AND CH=@CH
   ORDER BY last_name, first_name
 ) LAs
 UNION ALL
-  SELECT '','','',''
+  SELECT '','',''
 UNION ALL
 SELECT *
 FROM
 (
-  SELECT `Chapter`, `Role`, `Name`, `Country`
+  SELECT `Chapter`, `Role`, `Name (Country)`
   FROM feedback_chapter
   WHERE ROL='CA' AND AR=@AR AND WG=@WG AND CH=@CH
   ORDER BY last_name, first_name
 ) CAs
 UNION ALL
-  SELECT '','','',''
+  SELECT '','',''
 UNION ALL
 SELECT *
 FROM
 (
-  SELECT `Chapter`, `Role`, `Name`, `Country`
+  SELECT `Chapter`, `Role`, `Name (Country)`
   FROM feedback_chapter
   WHERE ROL='RE' AND AR=@AR AND WG=@WG AND CH=@CH
   ORDER BY last_name, first_name
