@@ -9,7 +9,7 @@ SELECT
     authors.last_name,
     ', ',
     countries.name
-  ) AS `Name, Country)`
+  ) AS `Name, Country`
 FROM
   chapters
   JOIN participations
