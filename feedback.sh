@@ -31,8 +31,8 @@ cd feedback
 
 feedback()
 {
-   dataset=$(dirname $1)
-   echo "Export ipcc-fact-checking/$dataset/back.csv"
+  dataset=$(dirname $1)
+  echo "Export ipcc-fact-checking/$dataset/back.csv"
   $query < $1 \
   | ../tsv2csv.sh > "../ipcc-fact-checking/$dataset/back.csv"
 }
