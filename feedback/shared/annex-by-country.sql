@@ -1,5 +1,3 @@
-USE giec
-
 SELECT
   countries.name AS `Country`,
   CONCAT(

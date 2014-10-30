@@ -21,6 +21,7 @@ else
   passwordParam="--password $password"
 fi
 
+database=giec
 query="mysql --host $host --user $user $passwordParam"
 
 # change to the script's directory
@@ -33,7 +34,7 @@ feedback()
 {
   dataset=$(dirname $1)
   echo "Export ipcc-fact-checking/$dataset/back.csv"
-  $query < $1 \
+  $query $database < $1 \
   | ../tsv2csv.sh > "../ipcc-fact-checking/$dataset/back.csv"
 }
 
@@ -43,7 +44,6 @@ do
 done
 
 # clean-up
-$query << EOF
-USE giec
+$query $database << EOF
 DROP VIEW feedback_chapter;
 EOF

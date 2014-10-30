@@ -1,5 +1,3 @@
-USE giec
-
 SELECT
   CONCAT(
     UPPER(authors.last_name),

@@ -1,5 +1,3 @@
-USE giec
-
 SELECT
   CONCAT(
     authors.first_name,

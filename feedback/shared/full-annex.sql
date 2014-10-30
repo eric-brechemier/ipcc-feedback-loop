@@ -1,5 +1,3 @@
-USE giec
-
 SELECT
   chapters.number AS `#`,
   chapters.title AS `Chapter`,

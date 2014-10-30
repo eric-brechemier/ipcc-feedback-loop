@@ -1,5 +1,3 @@
-USE giec
-
 CREATE OR REPLACE VIEW feedback_chapter AS
   SELECT
     participations.ar AS `AR`,
