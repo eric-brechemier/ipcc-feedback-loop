@@ -35,7 +35,7 @@ feedback()
   dataset=$(dirname $1)
   echo "Export ipcc-fact-checking/$dataset/back.csv"
   $query $database < $1 \
-  | ../tsv2csv.sh > "../ipcc-fact-checking/$dataset/back.csv"
+  | awk -f ../tsv2csv.awk > "../ipcc-fact-checking/$dataset/back.csv"
 }
 
 for script in */*/*/back.sql
